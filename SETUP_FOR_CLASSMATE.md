@@ -1,132 +1,142 @@
-# 🚀 SETUP INSTRUCTIONS FOR CLASSMATE — Cozy Café Lab Activity 7
-
-## What You Need to Do Before the Demo
-
-Hi! This project is already fully built. You just need to clone it, set it up once, and run two commands before class. Here's exactly what to do — step by step.
+﻿# ☕ COZY CAFÉ — GABAY PARA SA KAKLASE
+### (Para sa IPT 102 Lab Activity 7 ni Kyle Gacula)
 
 ---
 
-## STEP 1 — Prerequisites
-
-Make sure **Laragon** is installed and running on your PC.
-
-Open Laragon and click **Start All** (starts Apache + MySQL).
+> 💬 **Huy!** Huwag mag-alala kahit hindi ka techie — sundin mo lang ito isa-isa at magiging ayos lahat. Mahalaga lang na bukas ang **Laragon** sa laptop mo at may internet ka.
 
 ---
 
-## STEP 2 — Clone the Project into Laragon's www folder
+## 🟢 UNANG HAKBANG — I-download ang Project
 
-Open **PowerShell** or **CMD** and run:
+1. Buksan ang **Chrome** o **Edge**
+2. Pumunta sa link na ito:
+   > **https://github.com/kyleG18/cozy-cafe**
+3. I-click ang berdeng button na **"Code"**
+4. I-click ang **"Download ZIP"**
+5. Kapag na-download na, i-**extract** (i-right click ang ZIP file → Extract All)
+6. Ilipat ang folder na **"cozy-cafe-main"** sa loob ng:
+   ```
+   C:\laragon\www\
+   ```
+   > 💡 *Paano: buksan ang File Explorer → i-type sa address bar: `C:\laragon\www` → i-paste ang folder doon*
+7. I-rename ang folder mula `cozy-cafe-main` → `cozy-cafe`
+   > *Right-click → Rename → alisin ang `-main` sa dulo*
 
-```powershell
-cd C:\laragon\www
-git clone https://github.com/kyleG18/cozy-cafe.git
-cd cozy-cafe
+---
+
+## 🟡 IKALAWANG HAKBANG — Buksan ang Laragon
+
+1. Hanapin ang **Laragon** sa taskbar (nasa ibaba-kanan ng screen, mukhang isang "L" icon)
+2. I-right-click ito → i-click ang **"Start All"**
+3. Hintayin hanggang maging **berde** ang Apache at MySQL
+
+   > ✅ Kapag berde na = gumagana na ang web server!
+
+---
+
+## 🔵 IKATLONG HAKBANG — Buksan ang Antigravity
+
+1. Buksan ang **Antigravity** app sa laptop mo
+2. I-click ang **chat box** (katulad ng ChatGPT pero para sa code)
+3. **Copy** ang buong text sa kahon sa ibaba:
+
+---
+
+### 📋 KOPYAHIN ANG PROMPT NA ITO AT I-PASTE SA ANTIGRAVITY:
+
+```
+I have downloaded and placed the Cozy Café Laravel project in C:\laragon\www\cozy-cafe.
+
+Laragon is already running (Apache and MySQL are started).
+
+Please do the following for me automatically:
+
+1. Add PHP and Composer to the PATH using Laragon's binaries at C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64 and C:\laragon\bin\composer
+2. Run: composer install (to install PHP packages)
+3. Copy .env.example to .env and run: php artisan key:generate
+4. Create a MySQL database named cozy_cafe (root user, no password) if it doesn't exist yet
+5. Update the .env file: set DB_CONNECTION=mysql, DB_DATABASE=cozy_cafe, DB_USERNAME=root, DB_PASSWORD= (empty), BROADCAST_CONNECTION=reverb, QUEUE_CONNECTION=sync
+6. Run: php artisan migrate
+7. Run: php artisan db:seed
+8. Run: npm install
+9. Run: npm run build
+10. Fix the Apache virtual host config at C:\laragon\etc\apache2\sites-enabled\auto.cozy-cafe.test.conf to set DocumentRoot to C:/laragon/www/cozy-cafe/public
+11. Restart Apache so the fix takes effect
+12. Start the Reverb WebSocket server in the background using: php artisan reverb:start
+13. Verify the site loads at http://cozy-cafe.test and shows the Cozy Café dashboard with order data
+14. Run: php artisan test (to confirm all tests pass)
+15. Give me a summary of what was completed
+
+This is for IPT 102 Lab Activity 7 - Real-Time Order Dashboard using Laravel Reverb and Echo.
 ```
 
 ---
 
-## STEP 3 — Run Setup with Antigravity (AGY)
-
-Open **Antigravity IDE** and paste the following prompt exactly:
-
----
-
-```
-I have cloned the Cozy Café Laravel project to C:\laragon\www\cozy-cafe.
-
-Please do the following automatically:
-
-1. Make sure PHP and Composer are available via Laragon at C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64 and C:\laragon\bin\composer
-2. Install all PHP dependencies: composer install
-3. Create a .env file from .env.example and generate the app key
-4. Create the MySQL database called cozy_cafe (root user, no password) if it doesn't exist
-5. Update the .env file to use MySQL: DB_CONNECTION=mysql, DB_DATABASE=cozy_cafe, DB_USERNAME=root, DB_PASSWORD= and set BROADCAST_CONNECTION=reverb and QUEUE_CONNECTION=sync
-6. Run migrations: php artisan migrate
-7. Seed the database: php artisan db:seed
-8. Install npm packages: npm install
-9. Build frontend assets: npm run build
-10. Fix the Apache virtual host at C:\laragon\etc\apache2\sites-enabled\auto.cozy-cafe.test.conf to point DocumentRoot to C:/laragon/www/cozy-cafe/public (not just cozy-cafe)
-11. Restart Apache so the site loads at http://cozy-cafe.test
-12. Start the Reverb WebSocket server in the background: php artisan reverb:start
-13. Verify the site loads at http://cozy-cafe.test and shows the Cozy Café dashboard with orders
-14. Run the automated tests: php artisan test
-15. Confirm everything is working and give me a summary
-
-The project is for IPT 102 Lab Activity 7 - Real-Time Order Status Dashboard using Laravel, Reverb, and Echo.
-```
+4. I-**paste** ang prompt sa Antigravity (Ctrl+V) at pindutin ang **Enter**
+5. **Hintayin** si Antigravity — gagawin niya lahat ng setup ng automatic!
+   > ⏳ Aabutin ng mga **3–5 minuto**. Huwag sarahin ang window habang nagtatrabaho siya.
 
 ---
 
-## STEP 4 — Demo the Real-Time Feature to the Teacher
+## 🟠 IKAAPAT NA HAKBANG — Buksan ang Website
 
-Once Antigravity finishes setup:
+Kapag tapos na si Antigravity:
 
-1. **Open `http://cozy-cafe.test` in Chrome** (Browser A)
-2. **Open `http://cozy-cafe.test` in Firefox** (Browser B)  
-   *(or open a second Chrome window — Ctrl+N)*
-3. Wait until both windows show **🟢 Live** in the top-right header
-4. In **Browser A** → find any order → click the status dropdown → change from **Pending → Preparing**
-5. Watch **Browser B** — the order status changes **automatically** without refreshing!
-6. Show the teacher both windows side by side
+1. Buksan ang **Chrome**
+2. I-type sa address bar:
+   ```
+   http://cozy-cafe.test
+   ```
+3. Dapat makita mo ang magandang **Cozy Café dashboard** na may listahan ng mga order ☕
 
-That's the live WebSocket demo! ✅
-
----
-
-## If Something Goes Wrong
-
-**Site shows directory listing instead of the app:**
-- The Apache DocumentRoot wasn't updated yet — tell Antigravity to fix it (see Step 3 prompt above)
-
-**Connection indicator shows amber "Connecting..." and never goes green:**
-- Reverb is not running. In a terminal: `php artisan reverb:start`
-
-**Page gives a 500 error:**
-- Run: `php artisan config:clear` then refresh
-
-**Orders table is empty:**
-- Run: `php artisan db:seed`
+   > ✅ Dapat makita mo sa taas: **"🟢 Live"** — ibig sabihin, gumagana ang real-time connection!
 
 ---
 
-## Quick Reference — Commands to Run Manually (if Antigravity fails)
+## 🎯 IKALIMANG HAKBANG — I-demo sa Teacher (Pinaka-importante!)
 
-```powershell
-# Set PHP in PATH for this session
-$env:PATH = "C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64;C:\laragon\bin\composer;C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin;$env:PATH"
+Ito ang parte na ipapakita sa teacher:
 
-# Install dependencies
-composer install
-npm install
+### Setup:
+1. **Buksan ang Chrome** — pumunta sa `http://cozy-cafe.test`
+2. **Buksan ang Firefox** (o isa pang Chrome window: Ctrl+N) — pumunta rin sa `http://cozy-cafe.test`
+3. Ilagay ang dalawang window **side by side** (dalawang tab sa magkaibang panig ng screen)
+4. Tingnan na **pareho silang nagsasabi ng "🟢 Live"** sa header
 
-# Setup environment
-Copy-Item .env.example .env
-php artisan key:generate
+### Demo:
+1. Sa **Browser A (Chrome)** → hanapin ang order ni "Juan Dela Cruz"
+2. I-click ang dropdown na may nakasulat **"Pending"**
+3. Piliin ang **"Preparing"**
+4. Tignan ang **Browser B (Firefox)** — magbabago ang status ng ORDER **NANG HINDI MO NIRI-REFRESH!** 🔥
+5. Lalabas din ang toast notification na: *"Order #1 (Juan Dela Cruz) is now Preparing."*
 
-# Database
-mysql -u root -e "CREATE DATABASE IF NOT EXISTS cozy_cafe;"
-php artisan migrate
-php artisan db:seed
-
-# Build assets
-npm run build
-
-# Start Reverb (keep this terminal open!)
-php artisan reverb:start
-```
-
-Then open `http://cozy-cafe.test/public` in your browser if Apache DocumentRoot hasn't been updated yet.
+   > 👆 **Iyon ang real-time WebSocket demo!** Iyan ang punto ng activity.
 
 ---
 
-## Project Info
+## 🆘 Kung May Problema
 
-| Item | Value |
+| Problema | Solusyon |
 |---|---|
-| Student | Kyle Gacula |
-| Course | IPT 102 – Lab Activity 7 |
-| Site URL | http://cozy-cafe.test |
-| Reverb Port | 8080 |
-| Database | cozy_cafe (MySQL) |
-| GitHub Repo | https://github.com/kyleG18/cozy-cafe |
+| Hindi bumukas ang `http://cozy-cafe.test` | I-check kung bukas ang Laragon at berde ang Apache. Kung hindi, i-click ulit ang "Start All" |
+| Nagpapakita ng listahan ng files (hindi website) | Sabihin kay Antigravity: *"The site at http://cozy-cafe.test is showing a directory listing instead of the app. Please fix the Apache DocumentRoot to point to the public folder and restart Apache."* |
+| Naka-**amber/orange** ang connection indicator, hindi nagiging green | Sabihin kay Antigravity: *"The WebSocket connection indicator is not turning green. Please start the Reverb server by running: php artisan reverb:start in the cozy-cafe directory."* |
+| Walang orders na nakikita | Sabihin kay Antigravity: *"The orders table is empty. Please run php artisan db:seed in C:\laragon\www\cozy-cafe"* |
+| May red na error screen | Sabihin kay Antigravity: *"The site at http://cozy-cafe.test is showing a 500 error. Please run php artisan config:clear and check the logs."* |
+
+---
+
+## 📌 Quick Info
+
+| | |
+|---|---|
+| **Website** | http://cozy-cafe.test |
+| **GitHub** | https://github.com/kyleG18/cozy-cafe |
+| **Student** | Kyle Gacula |
+| **Subject** | IPT 102 – Lab Activity 7 |
+| **Topic** | Real-Time WebSocket Dashboard (Laravel + Reverb + Echo) |
+
+---
+
+> 🙏 **Salamat sa tulong!** Kung may tanong ka, i-message si Kyle. Basta sundin mo lang ang mga hakbang sa itaas at tatakbo ang lahat. Good luck sa demo bukas! ☕✨
